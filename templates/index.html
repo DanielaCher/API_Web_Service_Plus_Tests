@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Report Form</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Center vertically */
+            align-items: center;
+            /* Center horizontally */
+            text-align: center;
+            /* Center text */
+            padding: 20px;
+            /* Some padding around */
+        }
+
+        h2 {
+            color: #0d6efd;
+            /* Bootstrap primary color for some consistency */
+            margin: 20px 0;
+            /* Some spacing above and below */
+        }
+
+        h3 {
+            color: #6c757d;
+            /* Bootstrap secondary text color for contrast */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center min-vh-100">
+        <div>
+            <h1>Need help with a problem?</h1>
+            {% if error_message %}
+            <ul style="color: red;">
+                {% for message in error_message %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action="/process_input" method="post" class="w-50 mx-auto">
+                <label for="user-id">User ID:</label><br>
+                <input type="text" id="user-id" name="user_id"><br>
+                <label for="problem-description">Problem Description:</label><br>
+                <textarea id="problem-description" name="problem_description"></textarea><br>
+                <label for="device-serial-number">Device Serial Number:</label><br>
+                <input type="text" id="device-serial-number" name="device_serial_number"><br>
+
+                <label>Indicator Light 1:</label><br>
+                <input type="radio" id="light1_on" name="light1" value="on">
+                <label for="light1_on">On</label>
+                <input type="radio" id="light1_off" name="light1" value="off">
+                <label for="light1_off">Off</label>
+                <input type="radio" id="light1_blinking" name="light1" value="blinking">
+                <label for="light1_blinking">Blinking</label><br>
+
+                <label>Indicator Light 2:</label><br>
+                <input type="radio" id="light2_on" name="light2" value="on">
+                <label for="light2_on">On</label>
+                <input type="radio" id="light2_off" name="light2" value="off">
+                <label for="light2_off">Off</label>
+                <input type="radio" id="light2_blinking" name="light2" value="blinking">
+                <label for="light2_blinking">Blinking</label><br>
+
+                <label>Indicator Light 3:</label><br>
+                <input type="radio" id="light3_on" name="light3" value="on">
+                <label for="light3_on">On</label>
+                <input type="radio" id="light3_off" name="light3" value="off">
+                <label for="light3_off">Off</label>
+                <input type="radio" id="light3_blinking" name="light3" value="blinking">
+                <label for="light3_blinking">Blinking</label><br>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+</body>
+
+</html>
